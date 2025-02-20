@@ -48,7 +48,7 @@ public class AddProductServlet extends HttpServlet {
 		String n = request.getParameter("prodname");
 		String p = request.getParameter("prodquantity");
 		try {
-		 Class.forName("com.mysql.jdbc.Driver");
+		 Class.forName("com.mysql.cj.jdbc.Driver");
 		 Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/inventory","root", "password");
 			PreparedStatement ps = con.prepareStatement("insert into inventory values(?,?)");
 		 ps.setString(1, n);
