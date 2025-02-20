@@ -36,10 +36,8 @@
 						<tr>
 							<td><c:out value="${product.prodname}" /></td>
 							<td><c:out value="${product.prodquantity}" /></td>
-							<td><a
-								href="inventoryservlet/edit?prodname=${product.prodname}">Edit</a>
-								&nbsp;&nbsp;&nbsp;&nbsp; <a
-								href="inventoryservlet/delete?prodname=${product.prodname}">Delete</a>
+							<td> <a href="<c:url value='/inventoryservlet/edit'><c:param name='prodname' value='${product.prodname}' /></c:url>">Edit</a>
+<a href="<c:url value='/inventoryservlet/delete'><c:param name='prodname' value='${product.prodname}' /></c:url>">Delete</a>
 							</td>
 						</tr>
 					</c:forEach>

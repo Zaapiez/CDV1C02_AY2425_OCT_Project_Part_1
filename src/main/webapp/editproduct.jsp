@@ -50,15 +50,11 @@ Add New Product
 value='${product.prodname}' />" />
 				</c:if>
 				<fieldset class="form-group">
-					<label>Product Name</label> <input type="text"
-						value="<c:out
-value='${product.prodname}' />"
+					<label>Product Name</label> <input type="text" value="<c:out value='${product.prodname}' />"
 						class="form-control" name="prodname" required="required">
 				</fieldset>
 				<fieldset class="form-group">
-					<label>Quantity</label> <input type="text"
-						value="<c:out
-value='${product.prodquantity}' />"
+					<label>Quantity</label> <input type="text" value="<c:out value='${product.prodquantity}' />"
 						class="form-control" name="prodquantity">
 				</fieldset>
 

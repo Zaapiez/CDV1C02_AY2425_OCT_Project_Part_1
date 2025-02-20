@@ -127,6 +127,7 @@ public class inventoryservlet extends HttpServlet {
 			request.setAttribute("product", existingProd);
 			request.getRequestDispatcher("/editproduct.jsp").forward(request, response);
 			}
+
 	
 
 	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
