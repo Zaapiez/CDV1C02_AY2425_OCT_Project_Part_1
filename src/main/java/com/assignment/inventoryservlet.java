@@ -76,7 +76,7 @@ public class inventoryservlet extends HttpServlet {
 	protected Connection getConnection() {
 		Connection connection = null;
 		try {
-		Class.forName("com.mysql.jdbc.Driver");
+		Class.forName("com.mysql.cj.jdbc.Driver");
 		connection = DriverManager.getConnection(jdbcURL, jdbcUsername, jdbcPassword);
 		} catch (SQLException e) {
 		e.printStackTrace();
@@ -86,7 +86,7 @@ public class inventoryservlet extends HttpServlet {
 		return connection;
 		}
 
-	private void listProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException
+	public void listProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException
 			{
 			List <product> products = new ArrayList <>();
 			try (Connection connection = getConnection();
@@ -107,7 +107,7 @@ public class inventoryservlet extends HttpServlet {
 			request.setAttribute("listProduct", products);
 			request.getRequestDispatcher("/inventory.jsp").forward(request, response);
 			}
-	private void showEditForm(HttpServletRequest request, HttpServletResponse response)
+	public void showEditForm(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, ServletException, IOException {
 				String prodname = request.getParameter("prodname");
 			product existingProd = new product("", "");
@@ -130,7 +130,7 @@ public class inventoryservlet extends HttpServlet {
 
 	
 
-	private void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
+	public void updateProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
 	    String oriName = request.getParameter("oriName"); 
 	    String prodname = request.getParameter("prodname"); 
 	    String prodquantity = request.getParameter("prodquantity"); 
@@ -145,7 +145,7 @@ public class inventoryservlet extends HttpServlet {
 	    response.sendRedirect("http://localhost:8090/Assignmentpt2/inventoryservlet/dashboard");
 	}
 
-	private void deleteProduct(HttpServletRequest request, HttpServletResponse response)
+	public void deleteProduct(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException {
 			String prodname = request.getParameter("prodname");
 			try (Connection connection = getConnection(); PreparedStatement statement =
@@ -156,7 +156,7 @@ public class inventoryservlet extends HttpServlet {
 						response.sendRedirect("http://localhost:8090/Assignmentpt2/inventoryservlet/dashboard");
 			}
 
-	private void addNewProduct(HttpServletRequest request, HttpServletResponse response)
+	public void addNewProduct(HttpServletRequest request, HttpServletResponse response)
 			throws SQLException, IOException, ServletException {
 			RequestDispatcher rd = null;
 			rd = getServletContext().getRequestDispatcher("/AddProductServlet");
