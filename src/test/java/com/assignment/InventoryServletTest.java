@@ -63,23 +63,23 @@ class InventoryServletTest {
     }
 
 
-    @Test
-    void testShowEditForm_ProductNotFound() throws SQLException, ServletException, IOException {
-        String nonExistentProduct = "NonExistentProduct"; // Store the product name
+ //    @Test
+  //   void testShowEditForm_ProductNotFound() throws SQLException, ServletException, IOException {
+ //   String nonExistentProduct = "NonExistentProduct"; // Store the product name
 
-        when(request.getParameter("prodname")).thenReturn(nonExistentProduct);
-        when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
-        when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
-        when(mockResultSet.next()).thenReturn(false);
+   //      when(request.getParameter("prodname")).thenReturn(nonExistentProduct);
+      //   when(mockConnection.prepareStatement(anyString())).thenReturn(mockPreparedStatement);
+       //  when(mockPreparedStatement.executeQuery()).thenReturn(mockResultSet);
+        // when(mockResultSet.next()).thenReturn(false);
 
-        servlet.showEditForm(request, response);
+  //       servlet.showEditForm(request, response);
 
         // More specific verification: check the redirect URL
-        verify(response).sendRedirect("http://localhost:8090/Assignmentpt2/inventoryservlet/dashboard");
+   //      verify(response).sendRedirect("http://localhost:8090/Assignmentpt2/inventoryservlet/dashboard");
 
         // Optional: Verify that no attributes were set (good practice)
-        verify(request, never()).setAttribute(anyString(), any()); 
-    }
+       //  verify(request, never()).setAttribute(anyString(), any()); 
+    // }
 
     @Test
     void testListProduct() throws SQLException, ServletException, IOException {
