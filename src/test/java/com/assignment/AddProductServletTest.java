@@ -44,7 +44,7 @@ public class AddProductServletTest {
 
     @Test
     void testDoPost_Success() throws Exception {
-        when(request.getParameter("prodname")).thenReturn("Charizard");
+        when(request.getParameter("prodname")).thenReturn("Blastoise");
         when(request.getParameter("prodquantity")).thenReturn("5");
 
         servlet.doPost(request, response);
