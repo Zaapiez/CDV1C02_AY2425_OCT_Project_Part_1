@@ -49,10 +49,9 @@ pipeline {
                         sonar.java.coveragePlugin=jacoco
                     """
 
-                    // Create sonar-project.properties file
                     writeFile file: 'sonar-project.properties', text: sonarProperties
 
-                    // Run SonarQube scan using the properties file
+        
                     withSonarQubeEnv('sonarqube_scanner') {
                     	bat "${scannerHome}/bin/sonar-scanner -Dproject.settings=sonar-project.properties"
                 	}
